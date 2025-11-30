@@ -1,0 +1,24 @@
+{
+  "name": "max-msp-minecraft-musical",
+  "version": "1.0.0",
+  "description": "In this project I read minecraft entity streamed over a websocket using my fabric mod [mc-nbt-stream](https://github.com/aidanshilling/mc-nbt-stream) into a Max MSP patch. I then do some movie magic and turn the mob data into \"Music\".",
+  "main": "websocket_read.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aidanshilling/max-msp-minecraft-musical.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aidanshilling/max-msp-minecraft-musical/issues"
+  },
+  "homepage": "https://github.com/aidanshilling/max-msp-minecraft-musical#readme",
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
