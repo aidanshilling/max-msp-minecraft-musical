@@ -27,7 +27,7 @@ function connect() {
     let text = msg.toString();
     try {
       let data = JSON.parse(text);
-      outlet(0, ["dictionary", data]);
+      Max.outlet(data);
     } catch (e) {
       Max.post("JSON parse error: " + e.toString() + "\n");
       Max.post("Raw message: " + text + "\n");
