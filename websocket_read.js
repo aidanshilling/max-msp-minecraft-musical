@@ -17,8 +17,8 @@ function buildEntityAverages(data, prevFrame) {
   const prevNames = new Set(
     Array.isArray(prevFrame?.entities)
       ? prevFrame.entities
-          .map((entity) => entity && typeof entity === 'object' ? entity.name : undefined)
-          .filter(Boolean)
+        .map((entity) => entity && typeof entity === 'object' ? entity.name : undefined)
+        .filter(Boolean)
       : []
   );
 
@@ -42,13 +42,19 @@ function buildEntityAverages(data, prevFrame) {
 
   const averages = {};
   for (const [name, acc] of sums.entries()) {
+    const avgPosition = {
+      x: acc.x / acc.count,
+      y: acc.y / acc.count,
+      z: acc.z / acc.count,
+    };
     averages[name] = {
       count: acc.count,
-      position: {
-        x: acc.x / acc.count,
-        y: acc.y / acc.count,
-        z: acc.z / acc.count,
-      },
+      position: avgPosition,
+      radius: Math.sqrt(
+        Math.pow(avgPosition.x, 2) +
+        Math.pow(avgPosition.y, 2) +
+        Math.pow(avgPosition.z, 2)
+      ),
     };
   }
 
@@ -57,6 +63,7 @@ function buildEntityAverages(data, prevFrame) {
       averages[name] = {
         count: 0,
         position: { x: 0, y: 0, z: 0 },
+        radius: 20,
       };
     }
   }
